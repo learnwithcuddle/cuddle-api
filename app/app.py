@@ -9,11 +9,11 @@ app = Flask(__name__)
 
 @app.route("/test", methods=['GET', 'POST'])
 def test():
-    return "TESTINGGGGG"  
+    return jsonify({{hey: "please work"}})
 
 @app.route("/", methods=['GET', 'POST'])
 def index():
-    return "INDEXXXXXXXXXX"
+    return jsonify({{hey: "please work"}})
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=port)
