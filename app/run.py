@@ -4,6 +4,7 @@ import tensorflow as tf
 
 from flask import Flask, flash, request, make_response, render_template
 
+port = int(os.environ.get("PORT", 5000))
 app = Flask(__name__)
 
 @app.route("/test", methods=['GET', 'POST'])
@@ -15,4 +16,4 @@ def index():
     return "INDEXXXXXXXXXX"
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=port)
