@@ -6,7 +6,7 @@ Keras
 numpy
 opencv-python
 pandas
-Pillow
+Pillow==3.0.0
 request
 scipy
 tensorboard
