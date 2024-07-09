@@ -1,11 +1,12 @@
 from flask import Flask, request, jsonify
-from app.services.verify_sign import predict
+#from app.services.verify_sign import predict
 
 app = Flask(__name__)
 
 @app.route('/verify_sign', methods=['POST'])
 def process_image():
-    result = predict()
+    result = 1
+    #result = predict()
     return result
 
 @app.route("/")
