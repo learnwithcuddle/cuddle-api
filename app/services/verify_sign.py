@@ -3,10 +3,16 @@ from PIL import Image, ImageOps
 import numpy as np
 from flask import request, jsonify
 from io import BytesIO
+import os
+
+# Construct the absolute path for the model and labels
+base_path = os.path.dirname(os.path.abspath(__file__))
+model_path = os.path.join(base_path, "../LLMModels/keras_model.h5")
+labels_path = os.path.join(base_path, "../labels/labels.txt")
 
 # Load model and class names once at the start
-model = load_model("./LLMModels/keras_model.h5", compile=False)
-with open("./labels/labels.txt", "r") as file:
+model = load_model(model_path, compile=False)
+with open(labels_path, "r") as file:
     class_names = [line.strip() for line in file.readlines()]
 
 def predict():
