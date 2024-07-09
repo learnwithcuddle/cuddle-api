@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-from verify_sign import predict
+from app.verify_sign import predict
 
 app = Flask(__name__)
 

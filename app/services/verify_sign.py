@@ -5,8 +5,8 @@ from flask import request, jsonify
 from io import BytesIO
 
 # Load model and class names once at the start
-model = load_model("../LLMModels/keras_model.h5", compile=False)
-with open("../labels/labels.txt", "r") as file:
+model = load_model("./LLMModels/keras_model.h5", compile=False)
+with open("./labels/labels.txt", "r") as file:
     class_names = [line.strip() for line in file.readlines()]
 
 def predict():
