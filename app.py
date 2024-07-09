@@ -1,10 +1,12 @@
 from flask import Flask
+from app.services.verify_sign import predict
 
 app = Flask(__name__)
 
-@app.route("/test", methods=['GET', 'POST'])
-def test():
-    return jsonify({{hey: "please work"}})
+@app.route("/verify", methods=['POST'])
+def process_image():
+    result = predict()
+    return result
 
 @app.route("/")
 def index():
