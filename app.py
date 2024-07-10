@@ -4,7 +4,7 @@ from flask import Flask, request, jsonify
 # Ensure the app package is in the path
 sys.path.insert(0, './')
 
-from app.services.verify_sign import predict
+from verify_sign import predict
 
 app = Flask(__name__)
 
