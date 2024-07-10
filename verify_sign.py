@@ -7,8 +7,8 @@ import os
 
 # Construct the absolute path for the model and labels
 base_path = os.path.dirname(os.path.abspath(__file__))
-model_path = os.path.join(base_path, "../LLMModels/keras_model.h5")
-labels_path = os.path.join(base_path, "../labels/labels.txt")
+model_path = os.path.join(base_path, "LLMModels\keras_model.h5")
+labels_path = os.path.join(base_path, "labels\labels.txt")
 
 # Load model and class names once at the start
 model = load_model(model_path, compile=False)

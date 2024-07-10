@@ -18,4 +18,4 @@ def index():
     return "FLASK APP IS WORKING YIPEEEEEEEE :333333"
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
