@@ -1,20 +1,23 @@
 from keras.models import load_model
 from PIL import Image, ImageOps
 import numpy as np
-from flask import request, jsonify
+from flask import Flask, request, jsonify
 from io import BytesIO
 import os
 
+app = Flask(__name__)
+
 # Construct the absolute path for the model and labels
 base_path = os.path.dirname(os.path.abspath(__file__))
-model_path = os.path.join(base_path, "LLMModels\keras_model.h5")
-labels_path = os.path.join(base_path, "labels\labels.txt")
+model_path = os.path.join(base_path, "LLMModels", "keras_model.h5")
+labels_path = os.path.join(base_path, "labels", "labels.txt")
 
 # Load model and class names once at the start
 model = load_model(model_path, compile=False)
 with open(labels_path, "r") as file:
     class_names = [line.strip() for line in file.readlines()]
 
+@app.route('/predict', methods=['POST'])
 def predict():
     if 'image' not in request.files:
         return jsonify({'error': 'No image provided'}), 400
@@ -42,3 +45,6 @@ def predict():
         return jsonify({'class': class_name, 'confidence': float(confidence_score)})
     except Exception as e:
         return jsonify({'error': f'Error processing the image: {str(e)}'}), 500
+
+if __name__ == '__main__':
+    app.run()
