@@ -6,12 +6,14 @@ sys.path.insert(0, './')
 
 from app.services.verify_sign import predict
 
-@app.route("/verify", methods=['POST'])
+app = Flask(__name__)
+
+@app.route('/verify', methods=['POST'])
 def process_image():
     result = predict()
     return result
 
-@app.route("/")
+@app.route('/')
 def index():
     return "FLASK APP IS WORKING YIPEEEEEEEE :333333"
 
