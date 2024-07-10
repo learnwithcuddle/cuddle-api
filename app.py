@@ -1,7 +1,10 @@
-from flask import Flask
-from app.services.verify_sign import predict
+import sys
+from flask import Flask, request, jsonify
 
-app = Flask(__name__)
+# Ensure the app package is in the path
+sys.path.insert(0, './')
+
+from app.services.verify_sign import predict
 
 @app.route("/verify", methods=['POST'])
 def process_image():
