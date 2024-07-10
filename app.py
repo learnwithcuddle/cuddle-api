@@ -1,9 +1,5 @@
 import sys
 from flask import Flask, request, jsonify
-
-# Ensure the app package is in the path
-sys.path.insert(0, './')
-
 from verify_sign import *
 
 app = Flask(__name__)
